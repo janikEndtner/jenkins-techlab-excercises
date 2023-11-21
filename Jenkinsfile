@@ -8,14 +8,12 @@ pipeline {
     }
     environment {
         GREETINGS_TO = 'Jenkins Techlab'
+        CURRENT_BUILD_ID = ${env.BUILD_ID}
     }
     stages {
         stage('Greeting') {
             steps {
-                echo "Hello, ${env.GREETINGS_TO} !"
-
-                // also available as env variable to a process:
-                sh 'echo "Hello, $GREETINGS_TO !"'
+                echo "Hello, ${env.GREETINGS_TO} ${env.BUILD_ID}!"
             }
         }
     }
