@@ -8,7 +8,7 @@ pipeline {
     }
     environment {
         GREETINGS_TO = 'Jenkins Techlab'
-        CURRENT_BUILD_ID = ${env.BUILD_ID}
+        CURRENT_BUILD_ID = """${env.BUILD_ID}"""
     }
     stages {
         stage('Greeting') {
