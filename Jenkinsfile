@@ -13,6 +13,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo """java home ${env.JAVA_HOME}"""
 
                 sh 'java -version'
 
