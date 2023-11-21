@@ -6,17 +6,19 @@ pipeline {
         timestamps()  // Timestamper Plugin
         disableConcurrentBuilds()
     }
-    environment {
-        GREETINGS_TO = 'Jenkins Techlab'
-        CURRENT_BUILD_ID = """${env.BUILD_ID}"""
-    }
-    parameters {
-        string(name: 'Advanced_Greetings', defaultValue: 'default', description: 'Advanced Greetings')
+    tools {
+        jdk 'jdk11'
+        maven 'maven36'
     }
     stages {
-        stage('Greeting') {
+        stage('Build') {
             steps {
-                echo "Hello, ${env.GREETINGS_TO} ${env.BUILD_ID} advanced ${params.Advanced_Greetings}!"
+
+                sh 'java -version'
+
+                sh 'javac -version'
+
+                sh 'mvn --version'
             }
         }
     }
