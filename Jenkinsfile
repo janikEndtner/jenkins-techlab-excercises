@@ -14,6 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo """java home ${env.JAVA_HOME}"""
+                echo """path ${env.PATH}"""
 
                 sh 'java -version'
 
