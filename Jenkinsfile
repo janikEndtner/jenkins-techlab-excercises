@@ -10,6 +10,9 @@ pipeline {
         GREETINGS_TO = 'Jenkins Techlab'
         CURRENT_BUILD_ID = """${env.BUILD_ID}"""
     }
+    parameters {
+        string(name: 'Advanced_Greetings', defaultValue: 'default', description: 'Advanced Greetings')
+    }
     stages {
         stage('Greeting') {
             steps {
